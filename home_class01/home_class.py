@@ -14,5 +14,6 @@ class cadas_login:
         return False
 
     def cadastro(self, parametro_teste):
+        print("teste")
         result_text = "teste da variavel da funçã" + str(parametro_teste)
         return result_text
