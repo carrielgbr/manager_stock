@@ -14,6 +14,13 @@ class cadas_login:
         return False
 
     def cadastro(self, parametro_teste):
-        print("teste")
+        
+        cad_email = input(print"INSIRA SEU EMAIL")
+        cad_senha = input(print"INSIRA SUA SENHA")
+
+        print("CADASTRADO COM SUCESSO;")
+        
+        sair_function = input(print("SAIR DA FUNÇÃO"))
+                
         result_text = "teste da variavel da funçã" + str(parametro_teste)
         return result_text
