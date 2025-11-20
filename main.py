@@ -1,21 +1,30 @@
 import time
+from home_class01.home_class import cadas_login
+
+class1 = cadas_login()
+
+
 
 print ("******************")
 print ("OQUE IRÁ SER FEITO")
-print ("0 - SAIR")
-print ("1 - LOGIN")
+print ("0 - SAIR;")
+print ("1 - LOGIN;")
+print ("2 - CADASTRO;")
 
 #fun_sair = input(print("aper"))
 #fun_login = "login"
 
-fun_action = input(print("sair ou login, escolha um dos dois"))
+var_action = input(print(f"CADASTRAR OU LOGIN"))
 
 
-if fun_action == "login":
-    print ("Login feito seu animal:  ")
+if var_action == "login":
+    sucess = class1.login(parametro_login="realizando o login")
     time.sleep(0.10)
-    exit
+elif var_action == "cadastro":
+    sucess = class1.cadastro(parametro_teste="relaizando o cadastro")
+    time.sleep(0.20)
 else:
     print("SAINDO DO PROGRAMA;")
     time.sleep(0.50)
     exit
+
