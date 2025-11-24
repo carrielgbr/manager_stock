@@ -15,7 +15,7 @@ class cadas_login:
             time.sleep(10)
             print(email_cadastrado, "parabens login relazado")
 
-            sucess = function.screen_home(selec_print="tela home depois do")
+            sucess = function_screen.function_print(selec_print="tela home depois do")
 
             return True
         else:
