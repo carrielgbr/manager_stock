@@ -1,12 +1,13 @@
 class select_screen:
 
     def function_print(self, selec_print):
-        usuarios_1 = "usuarios"
-        estoque_2 = "estoque"
-        produto_3 = "produto"
-        fornecedor_4 = "fornecedor"
-        cliente_5 = "cliente"
-        funcionario_6 = "funcioanrios"
+        #usuarios_1 = "usuarios"
+        #estoque_2 = "estoque"
+        #produto_3 = "produto"
+        #Cliente_5 = "cliente"
+        #funcionario_6 = "funcioanrios"
+
+        selec_var = ['usuarios', 'estoque', 'produto', 'fornecedor', 'cliente', 'funcionario']
 
         print ("1 - Usuarios: ")
         print ("2 - Estoque: ")
@@ -18,25 +19,18 @@ class select_screen:
 
         enter_user = input(print("--SELECIONE OQUE VOCE QUER FAZER--"))
 
-        if enter_user == usuarios_1:
-            print("seleção correta de usuario:  ")
+        #for enter_user in selec_var:
+        if enter_user == 'usuarios':
+            print(enter_user)
+        elif enter_user == 'estoque':
+            print(enter_user)    
+        elif enter_user == 'produto':
+            print(enter_user)
+        elif enter_user == 'fornecedor':
+            print (enter_user)
+        elif enter_user == 'cliente':
+            print (enter_user)
+        elif enter_user == 'cliente':
+            print (enter_user)
         else:
-            print("erro de seleção")
-        if enter_user == estoque_2:
-            print("selecao correta de estoque:  ")
-        else:
-            print("erro de seleção")
-        if enter_user == produto_3:
-            print("seleção correta: ")
-        else: 
-            print("erro de selecao produto")
-        if enter_user == fornecedor_4:
-            print("seleção correta fornecedor")
-        else:
-            print("erro de seleção")
-        if enter_user == cliente_5:
-            print("seleção correta de cliente ")
-        else:
-            print("erro de seleção")
-        if enter_user == funcionario_6:
-            print("seleçao correta ")
+            print('erro otario')
