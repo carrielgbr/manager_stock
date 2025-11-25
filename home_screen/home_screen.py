@@ -1,3 +1,7 @@
+#from home_class01.home_class import cadas_login
+
+#function_login = cadas_login()
+
 class select_screen:
 
     def function_print(self, selec_print):
@@ -21,16 +25,16 @@ class select_screen:
 
         #for enter_user in selec_var:
         if enter_user == 'usuarios':
-            print(enter_user)
+            print(enter_user, 'screen users')
         elif enter_user == 'estoque':
-            print(enter_user)    
+            print(enter_user, 'screen users')    
         elif enter_user == 'produto':
-            print(enter_user)
+            print(enter_user, 'screen users')
         elif enter_user == 'fornecedor':
-            print (enter_user)
+            print (enter_user, 'screen users')
         elif enter_user == 'cliente':
-            print (enter_user)
+            print (enter_user, 'screen users')
         elif enter_user == 'cliente':
-            print (enter_user)
+            print (enter_user, 'screen users')
         else:
             print('erro otario')

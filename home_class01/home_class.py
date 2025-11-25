@@ -22,6 +22,8 @@ class cadas_login:
             print(senha_cadastrado, "errou, abestado")
         return False
 
+
+#Mover essa função para outro arquivo. 
     def cadastro(self, parametro_teste):
         
         cad_email = input(print("INSIRA SEU EMAIL"))
