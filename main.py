@@ -2,7 +2,7 @@ import sys
 import time
 import os
 from home_class01.home_class import cadas_login
-from DB.conn import conn
+#from DB.conn import conn
 
 # Variaveis
 class1 = cadas_login()
