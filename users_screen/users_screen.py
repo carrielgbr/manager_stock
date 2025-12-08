@@ -1,6 +1,6 @@
 class user_screen:
     
-    def screen_print(self):
+    def screen_print(self,print_result):
         print("Pesquisar Usuário")
         print("Cadastrar Usuário")
 

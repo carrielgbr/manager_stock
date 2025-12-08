@@ -1,6 +1,7 @@
-#from home_class01.home_class import cadas_login
+from users_screen.users_screen import user_screen
 import time
-#function_login = cadas_login()
+
+screen_user = user_screen()
 
 class select_screen:
 
@@ -16,12 +17,6 @@ class select_screen:
 
         self.email_logado = email_logado
 
-        #usuarios_1 = "usuarios"
-        #estoque_2 = "estoque"
-        #produto_3 = "produto"
-        #Cliente_5 = "cliente"
-        #funcionario_6 = "funcioanrios"
-
         print(f"Bem-Vindo {self.email_logado}.")
         time.sleep(1)
 
@@ -33,7 +28,7 @@ class select_screen:
 
             #for enter_user in selec_var:
             if enter_user == 'usuarios':
-                print(enter_user, 'screen users')
+                screen_user.screen_print()
             elif enter_user == 'estoque':
                 print(enter_user, 'screen users')
             elif enter_user == 'produto':
