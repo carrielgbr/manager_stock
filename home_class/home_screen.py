@@ -1,6 +1,6 @@
-#from login_cadastro_class.home_class import cadas_login
+from home_user import home_user_teste 
 import time
-#function_login = cadas_login()
+
 
 class Home_screen:
 
@@ -26,7 +26,8 @@ class Home_screen:
 
             #for enter_user in selec_var:
             if enter_user == 'usuarios':
-                print(enter_user, 'screen users')
+                user_screen = home_user_teste(self)
+                user_screen.fun_user()
             elif enter_user == 'estoque':
                 print(enter_user, 'screen users')
             elif enter_user == 'produto':

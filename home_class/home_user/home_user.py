@@ -1,7 +1,9 @@
-import time
+class home_user_teste:
 
-class home_user:
-    def fun_user(self, param_user):
+    def __init__(self, home_screen=None):
+        self.home_screen = home_screen
+
+    def fun_user():
 
         print("Cadastrar USUARIOS:...")
         print("Pesquisar USUARIOS:...")
