@@ -1,8 +1,8 @@
-#from home_class01.home_class import cadas_login
+#from login_cadastro_class.home_class import cadas_login
 import time
 #function_login = cadas_login()
 
-class select_screen:
+class Home_screen:
 
     email_logado = ""
 
@@ -12,17 +12,10 @@ class select_screen:
             print(f"{i} - {acoes[i]}")
 
 
-    def manager_home(self, email_logado):
+    def manager_home(self):
 
-        self.email_logado = email_logado
-
-        #usuarios_1 = "usuarios"
-        #estoque_2 = "estoque"
-        #produto_3 = "produto"
-        #Cliente_5 = "cliente"
-        #funcionario_6 = "funcioanrios"
-
-        print(f"Bem-Vindo {self.email_logado}.")
+        print(f"Bem-Vindo \'Teste\'.")
+        print()
         time.sleep(1)
 
         while True:

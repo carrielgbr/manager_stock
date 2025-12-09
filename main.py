@@ -1,11 +1,16 @@
 import sys
 import time
 import os
-from home_class01.home_class import cadas_login
+from login_cadastro_class.login_cadastro import Cadastro_logic
+from home_class.home_screen import Home_screen
 #from DB.conn import conn
 
 # Variaveis
-class1 = cadas_login()
+success = ""
+
+# Classes
+cadastro_login = Cadastro_logic()
+home_screen = Home_screen()
 
 # Funções
 def tela_main():
@@ -35,9 +40,15 @@ while (True):
     var_action = var_action.lower()
 
     if var_action == "login":
-        sucess = class1.login()
-        time.sleep(0.5)
+        success = cadastro_login.login()
+        if success:
+            home_screen.manager_home()
+
+    elif var_action == "cadastro":
+        cadastro_login.cadastro()
+
     elif var_action == "sair":
         print("SAINDO DO PROGRAMA !!!!")
         time.sleep(0.20)
         sys.exit(0)
+
