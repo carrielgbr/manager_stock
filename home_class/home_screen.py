@@ -1,6 +1,5 @@
-from home_user import home_user_teste 
+from home_class.home_user.home_user import home_user_teste 
 import time
-
 
 class Home_screen:
 
@@ -10,7 +9,6 @@ class Home_screen:
         acoes = ['Usuarios', 'Estoque', 'Produto', 'Fornecedor', 'Funcionario', 'Voltar', 'Sair']
         for i in range(len(acoes)):
             print(f"{i} - {acoes[i]}")
-
 
     def manager_home(self):
 
@@ -24,7 +22,6 @@ class Home_screen:
             enter_user = input(">> ")
             enter_user = enter_user.lower()
 
-            #for enter_user in selec_var:
             if enter_user == 'usuarios':
                 user_screen = home_user_teste(self)
                 user_screen.fun_user()
@@ -34,7 +31,7 @@ class Home_screen:
                 print(enter_user, 'screen users')
             elif enter_user == 'fornecedor':
                 print (enter_user, 'screen users')
-            elif enter_user == 'Funcionario':
+            elif enter_user == 'funcionario':
                 print (enter_user, 'screen users')
             elif enter_user == 'voltar':
                 return
