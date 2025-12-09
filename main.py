@@ -3,7 +3,6 @@ import time
 import os
 from login_cadastro_class.login_cadastro import Cadastro_logic
 from home_class.home_screen import Home_screen
-#from DB.conn import conn
 
 # Variaveis
 success = ""
@@ -35,7 +34,7 @@ while (True):
     tela_main()
 
     # Ação do Usuário
-    var_action = input(">> ")
+    var_action = input(">>:   ")
     # Deixa todas as palavras minusculas
     var_action = var_action.lower()
 

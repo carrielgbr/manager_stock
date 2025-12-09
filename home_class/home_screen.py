@@ -7,7 +7,7 @@ class Home_screen:
     email_logado = ""
 
     def tela_manager_home(self):
-        acoes = ['Usuarios', 'Estoque', 'Produto', 'Fornecedor', 'Cliente', 'Funcionario', 'Voltar', 'Sair']
+        acoes = ['Usuarios', 'Estoque', 'Produto', 'Fornecedor', 'Funcionario', 'Voltar', 'Sair']
         for i in range(len(acoes)):
             print(f"{i} - {acoes[i]}")
 
@@ -33,9 +33,7 @@ class Home_screen:
                 print(enter_user, 'screen users')
             elif enter_user == 'fornecedor':
                 print (enter_user, 'screen users')
-            elif enter_user == 'cliente':
-                print (enter_user, 'screen users')
-            elif enter_user == 'cliente':
+            elif enter_user == 'Funcionario':
                 print (enter_user, 'screen users')
             elif enter_user == 'voltar':
                 return
