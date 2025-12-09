@@ -3,6 +3,11 @@ class home_user_teste:
     def __init__(self, home_screen=None):
         self.home_screen = home_screen
     
+    def tela_manager_home(self):
+        acoes = ['LISTAR', 'EDITAR', 'DELETAR', 'VOLTAR']
+        for i in range(len(acoes)):
+            print(f"{i} - {acoes[i]}")
+
     def fun_user(self):
         """Função para gerenciar usuários"""
         print("=" * 40)
@@ -10,11 +15,7 @@ class home_user_teste:
         print("=" * 40)
         
         while True:
-            print("\n1 - Adicionar Usuário")
-            print("2 - Listar Usuários")
-            print("3 - Editar Usuário")
-            print("4 - Deletar Usuário")
-            print("5 - Voltar")
+
             
             opcao = input("\nEscolha uma opção: >> ").lower()
             

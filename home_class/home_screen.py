@@ -12,7 +12,9 @@ class Home_screen:
 
     def manager_home(self):
 
-        print(f"Bem-Vindo \'Teste\'.")
+        print("=" * 40)
+        print("TELA DE GERENCIAMENTO DE TELAS")
+        print("=" * 40)
         print()
         time.sleep(1)
 
