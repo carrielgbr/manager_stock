@@ -21,7 +21,7 @@ class Cadastro_logic:
         if len(self.usuarios) <= 0:
             print("Não há nenhum usuário cadastrado no sistema.")
             print("Por favor, cadastre-se para acessar o sistema.")
-            time.sleep(4)
+            time.sleep(0.10)
             return False
 
         self.login_tela()

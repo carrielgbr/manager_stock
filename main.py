@@ -48,6 +48,6 @@ while (True):
 
     elif var_action == "sair":
         print("SAINDO DO PROGRAMA !!!!")
-        time.sleep(0.20)
+        time.sleep(0.10)
         sys.exit(0)
 

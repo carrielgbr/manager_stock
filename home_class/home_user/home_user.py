@@ -1,3 +1,8 @@
+import sys
+from login_cadastro_class.login_cadastro import Cadastro_logic
+
+cadastro_login = Cadastro_logic()
+
 class home_user_teste:
     
     def __init__(self, home_screen=None):
@@ -16,32 +21,25 @@ class home_user_teste:
         
         while True:
 
+            self.tela_manager_home()
             
             opcao = input("\nEscolha uma opção: >> ").lower()
-            
-            if opcao == '1' or opcao == 'adicionar':
-                self.adicionar_usuario()
-            elif opcao == '2' or opcao == 'listar':
+            if opcao == '0' or opcao == 'listar':
                 self.listar_usuarios()
-            elif opcao == '3' or opcao == 'editar':
+            elif opcao == '1' or opcao == 'editar':
                 self.editar_usuario()
-            elif opcao == '4' or opcao == 'deletar':
+            elif opcao == '1' or opcao == 'deletar':
                 self.deletar_usuario()
-            elif opcao == '5' or opcao == 'voltar':
+            elif opcao == '3' or opcao == 'voltar':
                 return
             else:
                 print("Opção inválida!")
     
-    def adicionar_usuario(self):
-        print("\n--- Adicionar Usuário ---")
-        nome = input("Nome: ")
-        email = input("Email: ")
-        print(f"Usuário {nome} ({email}) adicionado com sucesso!")
-    
     def listar_usuarios(self):
         print("\n--- Listar Usuários ---")
         print("Usuários cadastrados no sistema...")
-    
+        print("Listando usuários...")
+        print (c)#colocar variavel do arquivo logic_cadastro.py para mostrar lista os usuarios cadastrados no sistema.
     def editar_usuario(self):
         print("\n--- Editar Usuário ---")
         nome = input("Nome do usuário a editar: ")
