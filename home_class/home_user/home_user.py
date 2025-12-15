@@ -24,22 +24,23 @@ class home_user_teste:
             self.tela_manager_home()
             
             opcao = input("\nEscolha uma opção: >> ").lower()
-            if opcao == '0' or opcao == 'listar':
+            if opcao in ['0', 'listar']:
                 self.listar_usuarios()
-            elif opcao == '1' or opcao == 'editar':
+            elif opcao in ['1', 'editar']:
                 self.editar_usuario()
-            elif opcao == '1' or opcao == 'deletar':
+            elif opcao in ['2', 'deletar']:
                 self.deletar_usuario()
-            elif opcao == '3' or opcao == 'voltar':
+            elif opcao in ['3', 'voltar']:
                 return
             else:
                 print("Opção inválida!")
     
     def listar_usuarios(self):
         print("\n--- Listar Usuários ---")
-        print("Usuários cadastrados no sistema...")
-        print("Listando usuários...")
-        print (c)#colocar variavel do arquivo logic_cadastro.py para mostrar lista os usuarios cadastrados no sistema.
+        print("Usuários cadastrados no sistema:")
+        for usuario in cadastro_login.usuarios:
+            print(f"Email: {usuario['email']}")
+
     def editar_usuario(self):
         print("\n--- Editar Usuário ---")
         nome = input("Nome do usuário a editar: ")
