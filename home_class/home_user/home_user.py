@@ -36,10 +36,16 @@ class home_user_teste:
                 print("Opção inválida!")
     
     def listar_usuarios(self):
-        print("\n--- Listar Usuários ---")
-        print("Usuários cadastrados no sistema:")
+         print("\n--- Listar Usuários ---")
+    if not cadastro_login.usuarios:  # Verifica se a lista de usuários está vazia
+        print("Nenhum usuário cadastrado.")
+    else:
+        print("Usuários cadastrados:")
         for usuario in cadastro_login.usuarios:
-            print(f"Email: {usuario['email']}")
+            print(f"- {usuario['email']}")  # Mostra somente o email
+
+    # Opção para voltar ao menu
+    input("\nPressione Enter para voltar ao menu...")
 
     def editar_usuario(self):
         print("\n--- Editar Usuário ---")
