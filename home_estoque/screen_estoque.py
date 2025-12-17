@@ -25,11 +25,7 @@ class screen_estoque:
             enter_estoque = input(">> ")
             enter_estoque = enter_estoque.lower()
 
-            if enter_estoque == 'adicionar produto':
-                print(enter_estoque, 'adicionar produto')
-            elif enter_estoque == 'remover produto':
-                print(enter_estoque, 'remover produto')
-            elif enter_estoque == 'ver estoque':
+            if enter_estoque == 'ver estoque':
                 print(enter_estoque, 'ver estoque')
             elif enter_estoque == 'voltar':
                 return
