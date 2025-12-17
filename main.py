@@ -26,7 +26,7 @@ def tela_main():
 #fun_sair = input(print("aper"))
 #fun_login = "login"
 
-while (True):
+while True:
 
     tela_main()
 

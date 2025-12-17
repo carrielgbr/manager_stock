@@ -1,10 +1,8 @@
 import time
 import variaveis_global
+import db
 
 class Cadastro_logic:
-
-    usuario = {}
-    usuarios = []
 
     def login_tela(self):
         print()
@@ -19,7 +17,7 @@ class Cadastro_logic:
         if variaveis_global.usuario_logado_index != -1:
             return variaveis_global.usuario_logado_index
 
-        if len(self.usuarios) <= 0:
+        if len(db.usuarios) <= 0:
             print("Não há nenhum usuário cadastrado no sistema.")
             print("Por favor, cadastre-se para acessar o sistema.")
             time.sleep(0.10)
@@ -34,7 +32,7 @@ class Cadastro_logic:
             if input_senha == variaveis_global.voltar_flair:
                 return -1
 
-            index = self.usuario_existe(input_email, input_senha)
+            index = self.usuario_auth(input_email, input_senha)
             if index != -1:
                 return index
             else:
@@ -43,34 +41,52 @@ class Cadastro_logic:
     # Mover essa função para outro arquivo.
     def cadastro(self):
 
-        cad_email = input("Insira seu Email: ")
-        if cad_email == variaveis_global.voltar_flair:
-            return
+        usuario = {}
+        cad_email = ""
+        cad_senha = ""
 
         while True:
-            cad_senha = input("Insira a senha: ")
-            if cad_senha == variaveis_global.voltar_flair:
+            cad_email = input("Insira seu Email: ")
+            if cad_email == variaveis_global.voltar_flair:
                 return
-            cad_senha_nov = input("Insira a senha novamente: ")
-            if cad_senha == variaveis_global.voltar_flair:
-                return
-            if cad_senha_nov == cad_senha:
-                break
-            else:
-                print("As senhas não coincidem, tente novamente.")
+            elif not self.usuario_existe(cad_email):
+                print("Já existe um usuário com esse email.")
+                continue
 
-        self.usuario["email"] = cad_email
-        self.usuario["senha"] = cad_senha
+            while True:
+                cad_senha = input("Insira a senha: ")
+                if cad_senha == variaveis_global.voltar_flair:
+                    return
+                cad_senha_nov = input("Insira a senha novamente: ")
+                if cad_senha == variaveis_global.voltar_flair:
+                    return
+                if cad_senha_nov == cad_senha:
+                    break
+                else:
+                    print("As senhas não coincidem, tente novamente.")
+            break
 
-        self.usuarios.append(self.usuario.copy())
-        self.usuario.clear()
+        usuario["email"] = cad_email
+        usuario["senha"] = cad_senha
+
+
+
+        db.usuarios.append(usuario.copy())
+        usuario.clear()
 
         print("CADASTRADO COM SUCESSO;")
         time.sleep(1.5)
 
-    def usuario_existe(self, email, senha):
+    def usuario_existe(self, email):
 
-        for index, usuario in enumerate(self.usuarios):
+        for index, usuario in enumerate(db.usuarios):
+            if usuario["email"] == email:
+                return index
+        return -1
+
+    def usuario_auth(self, email, senha):
+
+        for index, usuario in enumerate(db.usuarios):
             if usuario["email"] == email and usuario["senha"] == senha:
                 return index
         return -1
