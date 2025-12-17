@@ -1,8 +1,11 @@
 from home_class.home_user.home_user import home_user_teste 
 from home_estoque.screen_estoque import screen_estoque
+from home_produto.screen_produto import screen_produto
 import time
 
 estoque_screen = screen_estoque()
+produto_screen = screen_produto()
+
 
 class Home_screen:
 
@@ -34,7 +37,8 @@ class Home_screen:
                 user_screen = screen_estoque()
                 user_screen.tela_estoque()
             elif enter_user == 'produto':
-                print(enter_user, 'screen produto')
+                user_screen = screen_produto()
+                user_screen.tela_produto()
             elif enter_user == 'voltar':
                 return
             elif enter_user == 'sair':
