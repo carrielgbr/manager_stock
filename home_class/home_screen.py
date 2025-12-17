@@ -1,4 +1,5 @@
-from home_class.home_user.home_user import home_user_teste 
+from home_class.home_user.home_user import home_user_teste
+import variaveis_global
 import time
 
 class Home_screen:
@@ -34,4 +35,5 @@ class Home_screen:
             elif enter_user == 'voltar':
                 return
             elif enter_user == 'sair':
-                exit(False)
+                variaveis_global.usuario_logado_index = -1
+                break

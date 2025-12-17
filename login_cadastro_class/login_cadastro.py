@@ -1,9 +1,7 @@
 import time
+import variaveis_global
 
 class Cadastro_logic:
-
-    email_logado = ""
-    senha_logado = ""
 
     usuario = {}
     usuarios = []
@@ -18,31 +16,44 @@ class Cadastro_logic:
     # Tela de Login
     def login(self):
 
+        if variaveis_global.usuario_logado_index != -1:
+            return variaveis_global.usuario_logado_index
+
         if len(self.usuarios) <= 0:
             print("Não há nenhum usuário cadastrado no sistema.")
             print("Por favor, cadastre-se para acessar o sistema.")
             time.sleep(0.10)
-            return False
+            return -1
 
-        self.login_tela()
-        input_email = input("E-mail: ")
-        input_senha = input("Senha: ")
+        while True:
+            self.login_tela()
+            input_email = input("E-mail: ")
+            if input_email == variaveis_global.voltar_flair:
+                return -1
+            input_senha = input("Senha: ")
+            if input_senha == variaveis_global.voltar_flair:
+                return -1
 
-        if self.usuario_existe(input_email, input_senha):
-            self.email_logado = input_email
-            self.senha_logado = input_senha
-            return True
-        else:
-            print("Errou, abestado!")
-        return False
+            index = self.usuario_existe(input_email, input_senha)
+            if index != -1:
+                return index
+            else:
+                print("Login e/ou senha incorreto!")
 
     # Mover essa função para outro arquivo.
     def cadastro(self):
 
         cad_email = input("Insira seu Email: ")
+        if cad_email == variaveis_global.voltar_flair:
+            return
+
         while True:
             cad_senha = input("Insira a senha: ")
+            if cad_senha == variaveis_global.voltar_flair:
+                return
             cad_senha_nov = input("Insira a senha novamente: ")
+            if cad_senha == variaveis_global.voltar_flair:
+                return
             if cad_senha_nov == cad_senha:
                 break
 
@@ -57,8 +68,7 @@ class Cadastro_logic:
 
     def usuario_existe(self, email, senha):
 
-        for usuario in self.usuarios:
+        for index, usuario in enumerate(self.usuarios):
             if usuario["email"] == email and usuario["senha"] == senha:
-                return True
-
-        return False
+                return index
+        return -1

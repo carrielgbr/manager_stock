@@ -1,11 +1,8 @@
 import sys
 import time
-import os
+import variaveis_global
 from login_cadastro_class.login_cadastro import Cadastro_logic
 from home_class.home_screen import Home_screen
-
-# Variaveis
-success = ""
 
 # Classes
 cadastro_login = Cadastro_logic()
@@ -39,8 +36,8 @@ while (True):
     var_action = var_action.lower()
 
     if var_action == "login":
-        success = cadastro_login.login()
-        if success:
+        variaveis_global.usuario_logado_index = cadastro_login.login()
+        if variaveis_global.usuario_logado_index != -1:
             home_screen.manager_home()
 
     elif var_action == "cadastro":
@@ -50,4 +47,3 @@ while (True):
         print("SAINDO DO PROGRAMA !!!!")
         time.sleep(0.10)
         sys.exit(0)
-
