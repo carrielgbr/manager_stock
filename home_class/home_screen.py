@@ -31,16 +31,16 @@ class Home_screen:
             enter_user = input(">> ")
             enter_user = enter_user.lower()
 
-            if enter_user == 'usuarios':
+            if enter_user == 'usuarios' or enter_user == '0':
                 user_screen = home_user_teste(self)
                 user_screen.fun_user()
-            elif enter_user == 'estoques':
+            elif enter_user == 'estoques' or enter_user == '1':
                 user_screen = screen_estoque()
                 user_screen.tela_estoque()
-            elif enter_user == 'produto':
+            elif enter_user == 'produto' or enter_user == '2':
                 user_screen = screen_produto()
                 user_screen.tela_produto()
-            elif enter_user == 'voltar':
+            elif enter_user == 'voltar' or enter_user == '3':
                 return
             elif enter_user == 'sair':
                 variaveis_global.usuario_logado_index = -1

@@ -24,17 +24,15 @@ class screen_produto:
             enter_produto = enter_produto.lower()
 
             if enter_produto == 'ver produtos' or enter_produto == '2':
-                print(enter_produto, 'ver produtos')
-            elif enter_produto == 'voltar':
-                return
+                enter_produto = self.ver_produtos()
             elif enter_produto == 'adicionar produto' or enter_produto == '0':
                 enter_produto = self.adicionar_produto()
             elif enter_produto == 'remover produto' or enter_produto == '1':
-                print(enter_produto, 'remover produto')
+                enter_produto = self.remover_produto()
             else:
                 print("Ação inválida, tente novamente.")
 
-    def adicionar_produto(self, produtos):
+    def adicionar_produto(self):
         produtos = []
 
         nome = input("Insira o nome do produto: ")
