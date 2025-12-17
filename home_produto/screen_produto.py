@@ -23,26 +23,24 @@ class screen_produto:
             enter_produto = input(">> ")
             enter_produto = enter_produto.lower()
 
-            if enter_produto == 'ver produtos':
+            if enter_produto == 'ver produtos' or enter_produto == '2':
                 print(enter_produto, 'ver produtos')
             elif enter_produto == 'voltar':
                 return
-            elif enter_produto == 'adicionar produto':
-                print(enter_produto, 'adicionar produto')
-            elif enter_produto == 'remover produto':
+            elif enter_produto == 'adicionar produto' or enter_produto == '0':
+                enter_produto = self.adicionar_produto()
+            elif enter_produto == 'remover produto' or enter_produto == '1':
                 print(enter_produto, 'remover produto')
-
             else:
                 print("Ação inválida, tente novamente.")
-            # Additional functionality for 'Adicionar Produto' and 'Remover Produto' can be added here  
 
-    def adicionar_produto():
+    def adicionar_produto(self, produtos):
         produtos = []
+
         nome = input("Insira o nome do produto: ")
         preco = float(input("Insira o preço do produto: R$ "))
         quantidade = int(input("Insira a quantidade em estoque: "))
 
-    # Adiciona o produto à lista
         produtos.append({
             "nome": nome,
             "preco": preco,
@@ -50,3 +48,20 @@ class screen_produto:
         })
 
         print(f"{nome} cadastrado com sucesso!")
+
+    def remover_produto(self, produtos):
+        nome = input("Insira o nome do produto a ser removido: ")
+        for produto in produtos:
+            if produto["nome"] == nome:
+                produtos.remove(produto)
+                print(f"{nome} removido com sucesso!")
+                return
+        print(f"Produto {nome} não encontrado.")
+
+    def ver_produtos(self, produtos):
+        if not produtos:
+            print("Nenhum produto cadastrado.")
+            return
+        print("Produtos cadastrados:")
+        for produto in produtos:
+            print(f"Nome: {produto['nome']}, Preço: R$ {produto['preco']:.2f}, Quantidade: {produto['quantidade']}")
