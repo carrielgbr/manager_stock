@@ -27,8 +27,6 @@ class screen_produto:
                 print(enter_produto, 'ver produtos')
             elif enter_produto == 'voltar':
                 return
-            
-            # Additional functionality for 'Adicionar Produto' and 'Remover Produto' can be added here
             elif enter_produto == 'adicionar produto':
                 print(enter_produto, 'adicionar produto')
             elif enter_produto == 'remover produto':
@@ -37,3 +35,18 @@ class screen_produto:
             else:
                 print("Ação inválida, tente novamente.")
             # Additional functionality for 'Adicionar Produto' and 'Remover Produto' can be added here  
+
+    def adicionar_produto():
+        produtos = []
+        nome = input("Insira o nome do produto: ")
+        preco = float(input("Insira o preço do produto: R$ "))
+        quantidade = int(input("Insira a quantidade em estoque: "))
+
+    # Adiciona o produto à lista
+        produtos.append({
+            "nome": nome,
+            "preco": preco,
+            "quantidade": quantidade
+        })
+
+        print(f"{nome} cadastrado com sucesso!")

@@ -29,3 +29,6 @@ class screen_estoque:
                 print(enter_estoque, 'ver estoque')
             elif enter_estoque == 'voltar':
                 return
+            
+    def ver_estoque(self):
+        print(enter_estoque, 'ver estoque')
