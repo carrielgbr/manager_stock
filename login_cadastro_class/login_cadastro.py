@@ -56,6 +56,8 @@ class Cadastro_logic:
                 return
             if cad_senha_nov == cad_senha:
                 break
+            else:
+                print("As senhas não coincidem, tente novamente.")
 
         self.usuario["email"] = cad_email
         self.usuario["senha"] = cad_senha
