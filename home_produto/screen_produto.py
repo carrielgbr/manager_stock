@@ -54,7 +54,8 @@ class screen_produto:
                 produtos.remove(produto)
                 print(f"{nome} removido com sucesso!")
                 return
-        print(f"Produto {nome} não encontrado.")
+            else:
+                print(f"Produto {nome} não encontrado.")
 
     def ver_produtos(self, produtos):
         if not produtos:
