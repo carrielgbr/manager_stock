@@ -2,7 +2,7 @@ import time
 from home_produto.screen_produto import screen_produto
 
 produto_screen = screen_produto()
-
+produtos = []
 
 class screen_estoque:
     def tela_estoque(self):
@@ -10,6 +10,6 @@ class screen_estoque:
         print("TELA DE GERENCIAMENTO DE ESTOQUE")
         print("=" * 40)
 
-print produtos = []
-
-for 
+        time.sleep(1)
+for produto in produtos:
+    print(produto)

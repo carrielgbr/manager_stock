@@ -48,9 +48,19 @@ class home_user_teste:
 
     def editar_usuario(self):
         print("\n--- Editar Usuário ---")
-        nome = input("Nome do usuário a editar: ")
-        print(f"Editando {nome}...")
-    
+        if not db.usuarios:
+            print("Nenhum usuário cadastrado para editar.")
+            return
+        if db.usuarios :  # Verifica se há usuários cadastrados
+                print("Usuários cadastrados:")
+                for index, usuario in enumerate(db.usuarios):
+                    print(f"{index}-\t{usuario['email']}")
+        
+        #nome = input("Nome do usuário a editar: ")
+        #print(f"Editando {nome}...")
+        #nome = input("Insira novo email: ")
+        #print(f"Email atualizado para {nome} com sucesso!")
+
     def deletar_usuario(self):
         print("\n--- Deletar Usuário ---")
         nome = input("Nome do usuário a deletar: ")

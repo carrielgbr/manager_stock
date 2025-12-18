@@ -43,10 +43,16 @@ class screen_produto:
         fornecedor = input("Insira o nome do fornecedor: ")
         descricao = input("Insira a descrição do produto: ")
 
+        if any(produto["nome"] == nome for produto in produtos):
+            print(f"Produto {nome} já está cadastrado.")
+            return
+        
         produtos.append({
             "nome": nome,
             "preco": preco,
-            "quantidade": quantidade
+            "quantidade": quantidade,
+            "fornecedor": fornecedor,
+            "descrição": descricao
         })
 
         print(f"{nome} cadastrado com sucesso!")
