@@ -25,21 +25,23 @@ class screen_produto:
 
             if enter_produto == 'ver produtos' or enter_produto == '2':
                 print(enter_produto, 'ver produtos')
-            elif enter_produto == 'voltar':
-                return
             elif enter_produto == 'adicionar produto' or enter_produto == '0':
                 enter_produto = self.adicionar_produto()
             elif enter_produto == 'remover produto' or enter_produto == '1':
                 print(enter_produto, 'remover produto')
+            elif enter_produto == 'voltar':
+                return
             else:
                 print("Ação inválida, tente novamente.")
-
+            
     def adicionar_produto(self, produtos):
         produtos = []
 
         nome = input("Insira o nome do produto: ")
         preco = float(input("Insira o preço do produto: R$ "))
         quantidade = int(input("Insira a quantidade em estoque: "))
+        fornecedor = input("Insira o nome do fornecedor: ")
+        descricao = input("Insira a descrição do produto: ")
 
         produtos.append({
             "nome": nome,
@@ -64,4 +66,4 @@ class screen_produto:
             return
         print("Produtos cadastrados:")
         for produto in produtos:
-            print(f"Nome: {produto['nome']}, Preço: R$ {produto['preco']:.2f}, Quantidade: {produto['quantidade']}")
+            print(f"Nome: {produto['nome']}, Preço: R$ {produto['preco']:.2f}, Quantidade: {produto['quantidade']}, Fornecedor: {produto['fornecedor']}, descrição: {produto['descrição']}")
