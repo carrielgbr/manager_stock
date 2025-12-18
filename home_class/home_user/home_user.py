@@ -1,4 +1,4 @@
-import sys
+import db
 from login_cadastro_class.login_cadastro import Cadastro_logic
 
 cadastro_login = Cadastro_logic()
@@ -36,16 +36,15 @@ class home_user_teste:
                 print("Opção inválida!")
     
     def listar_usuarios(self):
-         print("\n--- Listar Usuários ---")
-    if not cadastro_login.usuarios:  # Verifica se a lista de usuários está vazia
-        print("Nenhum usuário cadastrado.")
-    else:
-        print("Usuários cadastrados:")
-        for usuario in cadastro_login.usuarios:
-            print(f"- {usuario['email']}")  # Mostra somente o email
-
-    # Opção para voltar ao menu
-    input("\nPressione Enter para voltar ao menu...")
+        print("\n--- Listar Usuários ---")
+        if not db.usuarios:  # Verifica se a lista de usuários está vazia
+            print("Nenhum usuário cadastrado.")
+        else:
+            print("Usuários cadastrados:")
+            for index, usuario in enumerate(db.usuarios):
+                print(f"{index}-\t{usuario['email']}")  # Mostra somente o email
+        # Opção para voltar ao menu
+        input("\nPressione Enter para voltar ao menu...")
 
     def editar_usuario(self):
         print("\n--- Editar Usuário ---")
