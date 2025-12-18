@@ -35,15 +35,15 @@ while True:
     # Deixa todas as palavras minusculas
     var_action = var_action.lower()
 
-    if var_action == "login":
+    if var_action == "1":
         variaveis_global.usuario_logado_index = cadastro_login.login()
         if variaveis_global.usuario_logado_index != -1:
             home_screen.manager_home()
 
-    elif var_action == "cadastro":
+    elif var_action == "2":
         cadastro_login.cadastro()
 
-    elif var_action == "sair":
+    elif var_action == "0":
         print("SAINDO DO PROGRAMA !!!!")
         time.sleep(0.10)
         sys.exit(0)
