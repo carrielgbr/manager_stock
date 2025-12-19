@@ -25,7 +25,7 @@ class Cadastro_logic:
 
         while True:
             self.login_tela()
-            input_email = input("E-mail: ")
+            input_email = input("Usuario: ")
             if input_email == variaveis_global.voltar_flair:
                 return -1
             input_senha = input("Senha: ")
@@ -46,11 +46,11 @@ class Cadastro_logic:
         cad_senha = ""
 
         while True:
-            cad_email = input("Insira seu Email: ")
+            cad_email = input("Insira seu usuario: ")
             if cad_email == variaveis_global.voltar_flair:
                 return
             elif not self.usuario_existe(cad_email):
-                print("Já existe um usuário com esse email.")
+                print("Já existe um usuário.")
                 continue
 
             while True:
@@ -66,7 +66,7 @@ class Cadastro_logic:
                     print("As senhas não coincidem, tente novamente.")
             break
 
-        usuario["email"] = cad_email
+        usuario["usuario"] = cad_email
         usuario["senha"] = cad_senha
 
 
@@ -80,13 +80,13 @@ class Cadastro_logic:
     def usuario_existe(self, email):
 
         for index, usuario in enumerate(db.usuarios):
-            if usuario["email"] == email:
+            if usuario["usuario"] == email:
                 return index
         return -1
 
     def usuario_auth(self, email, senha):
 
         for index, usuario in enumerate(db.usuarios):
-            if usuario["email"] == email and usuario["senha"] == senha:
+            if usuario["usuario"] == email and usuario["usuario"] == senha:
                 return index
         return -1

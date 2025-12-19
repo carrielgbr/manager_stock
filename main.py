@@ -3,15 +3,12 @@ import time
 import variaveis_global
 from login_cadastro_class.login_cadastro import Cadastro_logic
 from home_class.home_screen import Home_screen
-from home_produto.screen_produto import screen_produto
+
 
 # Classes
-produto_screen = screen_produto()
 cadastro_login = Cadastro_logic()
 home_screen = Home_screen()
 
-if __name__ == "__main__":
-    screen = screen_produto()
 
 # Funções
 def tela_main():
