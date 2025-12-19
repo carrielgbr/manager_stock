@@ -3,10 +3,15 @@ import time
 import variaveis_global
 from login_cadastro_class.login_cadastro import Cadastro_logic
 from home_class.home_screen import Home_screen
+from home_produto.screen_produto import screen_produto
 
 # Classes
+produto_screen = screen_produto()
 cadastro_login = Cadastro_logic()
 home_screen = Home_screen()
+
+if __name__ == "__main__":
+    screen = screen_produto()
 
 # Funções
 def tela_main():
@@ -15,7 +20,7 @@ def tela_main():
     print("\tBem-vindo ao Manager Stock")
     print("*" * 40)
     print()
-    print("0 - Sair;")
+    print("0 - Fechar Programa;")
     print("1 - Login;")
     print("2 - Cadastro;")
 

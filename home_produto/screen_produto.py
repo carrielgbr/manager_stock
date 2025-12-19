@@ -1,4 +1,8 @@
 class screen_produto:
+
+    def __init__(self):
+        self.produtos = []  # Inicializa a lista de produtos
+
     def tela_produto(self):
         print("=" * 40)
         print("TELA DE GERENCIAMENTO DE PRODUTOS")
@@ -26,10 +30,10 @@ class screen_produto:
             if enter_produto == 'ver produtos' or enter_produto == '2':
                 print(enter_produto, 'ver produtos')
             elif enter_produto == 'adicionar produto' or enter_produto == '0':
-                enter_produto = self.adicionar_produto()
+                enter_produto = self.adicionar_produto(self)
             elif enter_produto == 'remover produto' or enter_produto == '1':
                 print(enter_produto, 'remover produto')
-            elif enter_produto == 'voltar':
+            elif enter_produto == 'voltar' or enter_produto == '3':
                 return
             else:
                 print("Ação inválida, tente novamente.")
@@ -38,14 +42,17 @@ class screen_produto:
         produtos = []
 
         nome = input("Insira o nome do produto: ")
+
+        
+        if any(produto["nome"] == nome for produto in self.produtos):
+            print(f"Produto {nome} já está cadastrado.")
+            return
+
         preco = float(input("Insira o preço do produto: R$ "))
         quantidade = int(input("Insira a quantidade em estoque: "))
         fornecedor = input("Insira o nome do fornecedor: ")
         descricao = input("Insira a descrição do produto: ")
 
-        if any(produto["nome"] == nome for produto in produtos):
-            print(f"Produto {nome} já está cadastrado.")
-            return
         
         produtos.append({
             "nome": nome,
@@ -65,11 +72,12 @@ class screen_produto:
                 print(f"{nome} removido com sucesso!")
                 return
         print(f"Produto {nome} não encontrado.")
-
-    def ver_produtos(self, produtos):
-        if not produtos:
+  
+    def ver_produtos(self):
+        if not self.produtos:
             print("Nenhum produto cadastrado.")
             return
+        
         print("Produtos cadastrados:")
-        for produto in produtos:
-            print(f"Nome: {produto['nome']}, Preço: R$ {produto['preco']:.2f}, Quantidade: {produto['quantidade']}, Fornecedor: {produto['fornecedor']}, descrição: {produto['descrição']}")
+        for produto in self.produtos:
+            print(f"Nome: {produto['nome']}, Preço: R$ {produto['preco']:.2f}, Quantidade: {produto['quantidade']}, Fornecedor: {produto['fornecedor']}, Descrição: {produto['descricao']}")
