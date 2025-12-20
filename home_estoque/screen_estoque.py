@@ -2,9 +2,11 @@ import time
 from home_produto.screen_produto import screen_produto
 
 produto_screen = screen_produto()
-produtos = []
 
 class screen_estoque:
+    def __init__(self, obj_produto):
+        # Recebe o objeto que contém a lista de produtos
+        self.obj_produto = obj_produto 
 
     def tela_estoque(self):
         print("=" * 40)
