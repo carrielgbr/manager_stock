@@ -1,6 +1,7 @@
 import sys
 import time
 import variaveis_global
+from db import usuarios
 from login_cadastro_class.login_cadastro import Cadastro_logic
 from home_class.home_screen import Home_screen
 
@@ -8,7 +9,8 @@ from home_class.home_screen import Home_screen
 # Classes
 cadastro_login = Cadastro_logic()
 home_screen = Home_screen()
-
+# Add admin
+cadastro_login.add_admin()
 
 # Funções
 def tela_main():

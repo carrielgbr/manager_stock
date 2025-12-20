@@ -68,19 +68,9 @@ class home_user_teste:
                     selecionado = input("Selecione o Index do usuario para editar: ")
                     if selecionado == variaveis_global.voltar_flair:
                         return
-                    if selecionado.isalpha():
-                        selecionado_temp = selecionado
-                        selecionado = int(usrs_class.usuario_existe(selecionado))
-                        if selecionado != -1:
-                            break
-                        else:
-                            print(f"Não foi encontrado o usuario \'{selecionado_temp}\'.")
-                    elif selecionado.isnumeric():
-                        selecionado = int(selecionado)
-                        if (selecionado >= 0) and (selecionado < len(db.usuarios)):
-                            break
-                        else:
-                            print(f"Selecione um index entre '0' até \'{len(db.usuarios)}\'.")
+                    selecionado = usrs_class.selecione_usuario(selecionado)
+                    if selecionado != -1:
+                        break
                 except:
                     print("Digite o \'index\' ou o \'nome de usuario\' para editar.")
 
@@ -120,6 +110,40 @@ class home_user_teste:
 
 
     def deletar_usuario(self):
+
+        usrs_class = Cadastro_logic()
+
         print("\n--- Deletar Usuário ---")
-        nome = input("Nome do usuário a deletar: ")
-        print(f"Usuário {nome} deletado com sucesso!")
+        if not db.usuarios:
+            print("Nenhum usuário cadastrado para deletar.")
+            return
+        if db.usuarios :  # Verifica se há usuários cadastrados
+            while True:
+                print()
+                print("Usuarios:")
+                for index, usuario in enumerate(db.usuarios):
+                    print(f"{index} -\t{usuario['usuario']}")
+                try:
+                    usuario_deletar = input("Nome de usuário a deletar: ")
+                    if usuario_deletar == variaveis_global.voltar_flair:
+                        return
+                    usuario_deletar = usrs_class.selecione_usuario(usuario_deletar)
+                    if usuario_deletar != -1:
+                        break
+                except:
+                    print("Digite o \'index\' ou o \'nome de usuario\' para excluir.")
+
+        username = db.usuarios[usuario_deletar]["usuario"]
+        while True:
+            continuar = input(f"Deseja excluir o usuário \'{username}\' [s/n]? ")
+            continuar = continuar.strip().lower()
+
+            if continuar != 's':
+                return
+            else:
+                break
+
+        if usrs_class.deletar_usuario(usuario_deletar):
+            print(f"Usuário \'{username}\' deletado com sucesso!")
+        else:
+            print(f"Não foi possível deletar o usuário \'{username}\'.")

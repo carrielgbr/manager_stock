@@ -11,30 +11,6 @@ class Cadastro_logic:
         print("*" * 40)
         print()
 
-    def nome_de_usuario_check(self, nome_de_usuario: str):
-
-        if nome_de_usuario.isnumeric():
-            print("Erro: Usuario não deve conter apenas números.")
-            return False
-        elif nome_de_usuario.isspace():
-            print("Erro: Usuario não deve conter apenas espaços.")
-            return False
-        elif not ((len(nome_de_usuario) > 3) and (len(nome_de_usuario) <= 64)):
-            print("Erro: Usuário deve conter, pelo menos, entre 4 à 64 caracteres")
-            return False
-        return True
-
-    def senha_check(self, senha: str):
-
-        if " " in senha:
-            print("Erro: Não deve conter espaço em senha.")
-            return False
-        elif not ((len(senha) > 5) and (len(senha) <= 64)):
-            print("Erro: senha deve conter, pelo menos, entre 6 à 64 caracteres")
-            return False
-        return True
-
-
     # Tela de Login
     def login(self):
 
@@ -105,6 +81,9 @@ class Cadastro_logic:
         print("CADASTRADO COM SUCESSO;")
         time.sleep(1.5)
 
+    def add_admin(self):
+        db.usuarios.append({"usuario": "admin", "senha": "admin123"})
+
     def usuario_existe(self, usr):
 
         for index, usuario in enumerate(db.usuarios):
@@ -140,5 +119,52 @@ class Cadastro_logic:
             db.usuarios[index]["senha"] = new_usr_pass
         except:
             print("Ocorreu um problema ao editar a senha de usuário. Por favor, entre em contato com os administradores para reportar o Bug.")
+            return False
+        return True
+
+    def nome_de_usuario_check(self, nome_de_usuario: str):
+
+        if nome_de_usuario.isnumeric():
+            print("Erro: Usuario não deve conter apenas números.")
+            return False
+        elif nome_de_usuario.isspace():
+            print("Erro: Usuario não deve conter apenas espaços.")
+            return False
+        elif not ((len(nome_de_usuario) > 3) and (len(nome_de_usuario) <= 64)):
+            print("Erro: Usuário deve conter, pelo menos, entre 4 à 64 caracteres")
+            return False
+        return True
+
+    def senha_check(self, senha: str):
+
+        if " " in senha:
+            print("Erro: Não deve conter espaço em senha.")
+            return False
+        elif not ((len(senha) > 5) and (len(senha) <= 64)):
+            print("Erro: senha deve conter, pelo menos, entre 6 à 64 caracteres")
+            return False
+        return True
+
+    # Função que pega argumento como index ou nome de usuario, e retorna index correspondente do usuario
+    def selecione_usuario(self, argumento: str):
+        if argumento.isnumeric():
+            argumento = int(argumento)
+            if (argumento >= 0) and (argumento < len(db.usuarios)):
+                return argumento
+            else:
+                print(f"Selecione um index entre '0' até \'{len(db.usuarios)}\'.")
+        elif argumento.isalnum():
+            argumento_temp = argumento
+            argumento = int(self.usuario_existe(argumento))
+            if argumento != -1:
+                return argumento
+            else:
+                print(f"Não foi encontrado o usuario \'{argumento_temp}\'.")
+        return -1
+
+    def deletar_usuario(self, index: int):
+        try:
+            db.usuarios.pop(index)
+        except:
             return False
         return True
