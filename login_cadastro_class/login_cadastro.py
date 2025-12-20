@@ -6,9 +6,16 @@ class Cadastro_logic:
 
     def login_tela(self):
         print()
-        print("*" * 40)
+        print(f"{variaveis_global.bcolors.OKBLUE}=" * 40)
         print("\tTela de Login")
-        print("*" * 40)
+        print(f"=" * 40, f"{variaveis_global.bcolors.ENDC}")
+        print()
+
+    def cadastro_tela(self):
+        print()
+        print(f"{variaveis_global.bcolors.OKBLUE}=" * 40)
+        print("\tTela de Cadastro de Usuário")
+        print(f"=" * 40, f"{variaveis_global.bcolors.ENDC}")
         print()
 
     # Tela de Login
@@ -18,13 +25,15 @@ class Cadastro_logic:
             return variaveis_global.usuario_logado_index
 
         if len(db.usuarios) <= 0:
-            print("Não há nenhum usuário cadastrado no sistema.")
-            print("Por favor, cadastre-se para acessar o sistema.")
+            print(f"{variaveis_global.bcolors.WARNING}Não há nenhum usuário cadastrado no sistema.{variaveis_global.bcolors.ENDC}")
+            print(f"{variaveis_global.bcolors.WARNING}Por favor, cadastre um novo para acessar o sistema.{variaveis_global.bcolors.ENDC}")
+            print()
             time.sleep(0.10)
             return -1
 
+        self.login_tela()
+
         while True:
-            self.login_tela()
             input_usuario = input("Usuario: ")
             if input_usuario == variaveis_global.voltar_flair:
                 return -1
@@ -36,7 +45,8 @@ class Cadastro_logic:
             if index != -1:
                 return index
             else:
-                print("Login e/ou senha incorreto!")
+                print(f"{variaveis_global.bcolors.FAIL}Login e/ou senha incorreto!{variaveis_global.bcolors.ENDC}")
+                print()
 
     # Mover essa função para outro arquivo.
     def cadastro(self):
@@ -45,8 +55,9 @@ class Cadastro_logic:
         cad_usuario = ""
         cad_senha = ""
 
+        self.cadastro_tela()
+
         while True:
-            print()
             cad_usuario = input("Insira seu usuario: ")
             cad_usuario = cad_usuario.strip()
             if cad_usuario == variaveis_global.voltar_flair:
@@ -54,7 +65,8 @@ class Cadastro_logic:
             elif not self.nome_de_usuario_check(cad_usuario):
                 continue
             elif self.usuario_existe(cad_usuario) != -1:
-                print("Já existe um usuário com esse nome de usuário.")
+                print(f"{variaveis_global.bcolors.FAIL}Erro: Já existe um usuário com esse nome de usuário.{variaveis_global.bcolors.ENDC}")
+                print()
                 continue
 
             while True:
@@ -69,7 +81,8 @@ class Cadastro_logic:
                 if cad_senha_nov == cad_senha:
                     break
                 else:
-                    print("As senhas não coincidem, tente novamente.")
+                    print(f"{variaveis_global.bcolors.FAIL}Erro: As senhas não coincidem, tente novamente.{variaveis_global.bcolors.ENDC}")
+                    print()
             break
 
         usuario["usuario"] = cad_usuario
@@ -78,7 +91,8 @@ class Cadastro_logic:
         db.usuarios.append(usuario.copy())
         usuario.clear()
 
-        print("CADASTRADO COM SUCESSO;")
+        print(f"{variaveis_global.bcolors.OKGREEN}Sucesso: Usuário cadastrado{variaveis_global.bcolors.ENDC}")
+        print()
         time.sleep(1.5)
 
     def add_admin(self):
@@ -104,44 +118,52 @@ class Cadastro_logic:
                 return False
             db.usuarios[index]["usuario"] = new_usr_name
         except:
-            print("Ocorreu um problema ao editar o nome de usuário. Por favor, entre em contato com os administradores para reportar o Bug.")
+            print(f"{variaveis_global.bcolors.FAIL}Erro: Ocorreu um problema ao editar o nome de usuário. Por favor, entre em contato com os administradores para reportar o Bug.{variaveis_global.bcolors.ENDC}")
+            print()
             return False
         return True
 
     def editar_senha_de_usuario(self, index: int, old_usr_pass: str, new_usr_pass: str):
 
         if not old_usr_pass == db.usuarios[index]["senha"]:
-            print("Senha incorreta.")
+            print(f"{variaveis_global.bcolors.FAIL}Senha incorreta.{variaveis_global.bcolors.ENDC}")
+            print()
             return False
         try:
             if not self.senha_check(new_usr_pass):
                 return False
             db.usuarios[index]["senha"] = new_usr_pass
         except:
-            print("Ocorreu um problema ao editar a senha de usuário. Por favor, entre em contato com os administradores para reportar o Bug.")
+            print(f"{variaveis_global.bcolors.FAIL}Ocorreu um problema ao editar a senha de usuário. Por favor, entre em contato com os administradores para reportar o Bug.{variaveis_global.bcolors.ENDC}")
+            print()
             return False
         return True
 
     def nome_de_usuario_check(self, nome_de_usuario: str):
 
         if nome_de_usuario.isnumeric():
-            print("Erro: Usuario não deve conter apenas números.")
+            print(f"{variaveis_global.bcolors.FAIL}Erro: Usuario não deve conter apenas números.{variaveis_global.bcolors.ENDC}")
+            print()
             return False
         elif nome_de_usuario.isspace():
-            print("Erro: Usuario não deve conter apenas espaços.")
+            print(f"{variaveis_global.bcolors.FAIL}Erro: Usuario não deve conter apenas espaços.{variaveis_global.bcolors.ENDC}")
+            print()
             return False
         elif not ((len(nome_de_usuario) > 3) and (len(nome_de_usuario) <= 64)):
-            print("Erro: Usuário deve conter, pelo menos, entre 4 à 64 caracteres")
+            print(f"{variaveis_global.bcolors.FAIL}Erro: Usuário deve conter, pelo menos, entre 4 à 64 caracteres.{variaveis_global.bcolors.ENDC}")
+            print()
             return False
         return True
 
     def senha_check(self, senha: str):
 
         if " " in senha:
-            print("Erro: Não deve conter espaço em senha.")
+            print(f"{variaveis_global.bcolors.FAIL}Erro: Não deve conter espaço em senha.{variaveis_global.bcolors.ENDC}")
+            print()
             return False
         elif not ((len(senha) > 5) and (len(senha) <= 64)):
-            print("Erro: senha deve conter, pelo menos, entre 6 à 64 caracteres")
+            print(f"{variaveis_global.bcolors.FAIL}Erro: senha deve conter, pelo menos, entre 6 à 64 caracteres.{variaveis_global.bcolors.ENDC}")
+            print()
             return False
         return True
 
@@ -152,14 +174,16 @@ class Cadastro_logic:
             if (argumento >= 0) and (argumento < len(db.usuarios)):
                 return argumento
             else:
-                print(f"Selecione um index entre '0' até \'{len(db.usuarios)}\'.")
+                print(f"{variaveis_global.bcolors.FAIL}Erro: Selecione um index entre '0' até \'{len(db.usuarios)}\'.{variaveis_global.bcolors.ENDC}")
+                print()
         elif argumento.isalnum():
             argumento_temp = argumento
             argumento = int(self.usuario_existe(argumento))
             if argumento != -1:
                 return argumento
             else:
-                print(f"Não foi encontrado o usuario \'{argumento_temp}\'.")
+                print(f"{variaveis_global.bcolors.FAIL}Erro: Não foi encontrado o usuario \'{argumento_temp}\'.{variaveis_global.bcolors.ENDC}")
+                print()
         return -1
 
     def deletar_usuario(self, index: int):

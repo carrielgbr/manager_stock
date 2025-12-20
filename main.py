@@ -19,9 +19,9 @@ def tela_main():
     print("\tBem-vindo ao Manager Stock")
     print("*" * 40)
     print()
-    print("0 - Fechar Programa;")
-    print("1 - Login;")
-    print("2 - Cadastro;")
+    print("0 - Login;")
+    print("1 - Cadastro;")
+    print("2 - Fechar Programa;")
 
 
 
@@ -39,15 +39,15 @@ while True:
     # Deixa todas as palavras minusculas
     var_action = var_action.lower()
 
-    if var_action in ['1', 'login']:
+    if var_action in ['0', 'login']:
         variaveis_global.usuario_logado_index = cadastro_login.login()
         if variaveis_global.usuario_logado_index != -1:
             home_screen.manager_home()
 
-    elif var_action in ['2', 'cadastro']:
+    elif var_action in ['1', 'cadastro']:
         cadastro_login.cadastro()
 
-    elif var_action in ['0', 'sair']:
+    elif var_action in ['2', 'sair']:
         print("SAINDO DO PROGRAMA !!!!")
         time.sleep(0.10)
         sys.exit(0)

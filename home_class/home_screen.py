@@ -15,10 +15,9 @@ class Home_screen:
             print(f"{i} - {acoes[i]}")
 
     def manager_home(self):
-
-        print("=" * 40)
+        print(f"{variaveis_global.bcolors.OKBLUE}=" * 40)
         print("TELA DE GERENCIAMENTO DE TELAS")
-        print("=" * 40)
+        print(f"=" * 40, f"{variaveis_global.bcolors.ENDC}")
         print()
         time.sleep(1)
 
