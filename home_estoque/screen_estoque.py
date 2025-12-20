@@ -1,5 +1,6 @@
 import time
 from home_produto.screen_produto import screen_produto
+import db
 
 produto_screen = screen_produto()
 
