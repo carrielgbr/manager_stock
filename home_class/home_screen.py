@@ -35,7 +35,7 @@ class Home_screen:
                 user_screen.tela_estoque()
             elif enter_user in ['2', 'produto']:
                 user_screen = screen_produto()
-                user_screen.tela_produto()
+                user_screen.tela_produto_home()
             elif enter_user == 'voltar':
                 return
             elif enter_user in ['3', 'sair']:
