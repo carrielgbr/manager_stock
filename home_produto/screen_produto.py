@@ -39,7 +39,6 @@ class screen_produto:
                 print("Ação inválida, tente novamente.")
             
     def adicionar_produto(self, produtos):
-        produtos = []
 
         nome = input("Insira o nome do produto: ")
 
@@ -54,7 +53,7 @@ class screen_produto:
         descricao = input("Insira a descrição do produto: ")
 
         
-        produtos.append({
+        self.produtos.append({
             "nome": nome,
             "preco": preco,
             "quantidade": quantidade,
