@@ -4,9 +4,6 @@ from home_produto.screen_produto import screen_produto
 import variaveis_global
 import time
 
-estoque_screen = screen_estoque()
-produto_screen = screen_produto()
-
 
 class Home_screen:
 

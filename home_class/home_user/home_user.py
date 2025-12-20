@@ -74,7 +74,12 @@ class home_user_teste:
                 except:
                     print("Digite o \'index\' ou o \'nome de usuario\' para editar.")
 
+            if usrs_class.usuario_e_adm(selecionado):
+                print("Erro: Não é possivel editar a conta do Administrador")
+                return
+
             nome_de_usuario = db.usuarios[selecionado]["usuario"]
+
             while True:
                 print()
                 print(f"Usuario \'{nome_de_usuario}\' selecionado.")
@@ -102,6 +107,10 @@ class home_user_teste:
                         print("Senha incorreta.")
                         continue
                     nova_senha = input(f"Digite a nova senha: ")
+                    nova_senha_dnv = input(f"Digite a nova senha novamente:")
+                    if nova_senha != nova_senha_dnv:
+                        print("As duas senhas não são iguais.")
+                        continue
                     if not usrs_class.editar_senha_de_usuario(selecionado, auth_senha, nova_senha):
                         continue
                     print(f"Sucesso: a senha do usuário \'{nome_de_usuario}\' foi alterado.")
@@ -133,7 +142,12 @@ class home_user_teste:
                 except:
                     print("Digite o \'index\' ou o \'nome de usuario\' para excluir.")
 
+        if usrs_class.usuario_e_adm(usuario_deletar):
+            print("Não é possivel excluir a conta do administrador")
+            return
+
         username = db.usuarios[usuario_deletar]["usuario"]
+
         while True:
             continuar = input(f"Deseja excluir o usuário \'{username}\' [s/n]? ")
             continuar = continuar.strip().lower()

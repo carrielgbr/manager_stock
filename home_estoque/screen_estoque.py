@@ -5,10 +5,12 @@ produto_screen = screen_produto()
 produtos = []
 
 class screen_estoque:
+
     def tela_estoque(self):
         print("=" * 40)
         print("TELA DE GERENCIAMENTO DE ESTOQUE")
         print("=" * 40)
         time.sleep(1)
-    for produto in produtos:
-            print(f"Nome: {produto['nome']}, Preço: R$ {produto['preco']:.2f}, Quantidade: {produto['quantidade']}, Fornecedor: {produto['fornecedor']}, descrição: {produto['descrição']}")
+        teste = input("Enter...")
+        for produto in produtos:
+                print(f"Nome: {produto['nome']}, Preço: R$ {produto['preco']:.2f}, Quantidade: {produto['quantidade']}, Fornecedor: {produto['fornecedor']}, descrição: {produto['descrição']}")

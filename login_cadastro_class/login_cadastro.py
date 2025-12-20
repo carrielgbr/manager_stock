@@ -82,7 +82,7 @@ class Cadastro_logic:
         time.sleep(1.5)
 
     def add_admin(self):
-        db.usuarios.append({"usuario": "admin", "senha": "admin123"})
+        db.usuarios.append({"usuario": variaveis_global.admin_usuario, "senha": variaveis_global.admin_senha})
 
     def usuario_existe(self, usr):
 
@@ -168,3 +168,10 @@ class Cadastro_logic:
         except:
             return False
         return True
+
+    def usuario_e_adm(self, index: int):
+
+        if index == 0 and db.usuarios[index]["usuario"] == variaveis_global.admin_usuario:
+            return True
+        else:
+            return False
